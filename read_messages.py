@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 def read_args():
-    parser = argparse.ArgumentParser(description='Утилита для подключения к чату ')
+    parser = argparse.ArgumentParser(description='Утилита для чтения сообщений чата ')
     parser.add_argument('-host', type=str, default='minechat.dvmn.org', help='Имя хоста (default=minechat.dvmn.org)')
     parser.add_argument('-port', type=int, default=5000, help='Номер порта (default=5000)')
     parser.add_argument('-logfile', type=str, default='logfile.txt', help='Имя файла логов (default=logfile.txt)')
