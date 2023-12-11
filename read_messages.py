@@ -13,7 +13,7 @@ def read_args():
     return args
 
 
-async def tcp_client():
+async def read_messages():
     args = read_args()
     host, port, logfile = args.host, args.port, args.logfile
     try:
@@ -34,7 +34,7 @@ async def tcp_client():
         await writer.wait_closed()
 
 def main():
-    asyncio.run(tcp_client())
+    asyncio.run(read_messages())
 
 if __name__ == '__main__':
     main()
