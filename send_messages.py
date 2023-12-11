@@ -26,7 +26,7 @@ def read_args():
     parser.add_argument('-t', '--token', type=str, default=token,
                         help='Токен для подключения к чату, по умолчанию берется из файла .env')
     parser.add_argument('-r', '--reg', type=bool, default=False, choices=[False, True],
-                        help='Нужна регистрация? (default=False')
+                        help='Нужна регистрация? (default=False)')
     parser.add_argument('-n', '--name', type=str, default='User',
                         help='Имя пользователя при регистрации (default=User)')
 
