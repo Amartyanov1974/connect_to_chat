@@ -92,16 +92,7 @@ async def submit_message(writer, message):
     logger.info(f'Сообщение: "{clean_message}" - отправлено')
 
 
-async def main():
-    args = read_args()
-    loglevel = args.loglevel
-    logger = logging.getLogger(__name__)
-    logger.setLevel(loglevel)
-    console_handler = logging.StreamHandler()
-    console_handler.setLevel(loglevel)
-    formatter = logging.Formatter('%(asctime)s - %(funcName)s - %(message)s')
-    console_handler.setFormatter(formatter)
-    logger.addHandler(console_handler)
+async def work_connection(args):
     host, port, reg, name = args.host, args.port, args.reg, args.name
     token, message = args.token, args.message
     try:
@@ -118,6 +109,20 @@ async def main():
             logger.info('Close the connection')
             writer.close()
             await writer.wait_closed()
+
+
+
+async def main():
+    args = read_args()
+    loglevel = args.loglevel
+    logger = logging.getLogger(__name__)
+    logger.setLevel(loglevel)
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(loglevel)
+    formatter = logging.Formatter('%(asctime)s - %(funcName)s - %(message)s')
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
+    await work_connection(args)
 
 
 if __name__ == '__main__':
